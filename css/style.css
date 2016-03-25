@@ -1,0 +1,89 @@
+/* MOBILE */
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#container {
+    min-height:100%;
+    position:relative;
+}
+
+header {
+    background-color: #2F5E87;
+    padding:10px;
+}
+
+#logo {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 10px;
+    display: block;
+}
+
+#posts {
+    padding:10px;
+    padding-bottom:60px;
+    height: 1000px;
+}
+
+nav {
+    display: flex;
+}
+
+.navItem {
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#navHome {
+    background-image: url("../images/logoHome.png");
+}
+
+#navHome:active {
+    background-image: url("../images/logoHomeHover.png");
+}
+
+#navSearch {
+    background-image: url("../images/logoSearch.png");
+}
+
+#navSearch:active {
+    background-image: url("../images/logoSearchActive.png");
+}
+
+#navPost {
+    background-image: url("../images/logoPosts.png");
+}
+
+#navNotify {
+    background-image: url("../images/logoNotify.png");
+}
+
+#navNotify:active {
+    background-image: url("../images/logoNotifyActive.png");
+}
+
+#navProfile {
+    background-image: url("../images/logoProfile.png");
+}
+
+#navProfile:active {
+    background-image: url("../images/logoProfileActive.png");
+}
+
+#footer {
+    background-color: #25292C;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:60px;
+}
