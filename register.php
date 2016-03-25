@@ -3,16 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Register on Instagram</title>
+    <style>
+        #logo {
+            width: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+        }
+
+        .text {
+            color: gray;
+            text-align: center;
+            font-family: "verdana";
+            font-size: 0.8em;
+        }
+
+        #fb {
+            background-color: #4090DB;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 350px;
+            height: 30px;
+            font-family: "verdana";
+            font-size: 0.8em;
+            padding-top: 6px;
+        }
+
+        #fblogo {
+            width: 20px;
+            padding-right: 10px;
+        }
+
+
+    </style>
 </head>
 <body>
 
 <header>
-    <img src="images/logo.png;" alt="">
-    <p>Sign up to see photos and videos from your friends.</p>
-    <a href="">Log in with Facebook</a>
+    <img id="logo" src="images/logo.png" alt="">
+    <p class="text">Sign up to see photos and videos from your friends.</p>
+    <a id="fb" href=""><img id="fblogo" src="images/fb.png" alt="">Log in with Facebook</a>
 </header>
 
-<p>OR</p>
+<p class="text">OR</p>
 
 <section>
     <form action="" method="post">
@@ -25,7 +63,7 @@
     </form>
 </section>
 
-<p>By signing up, you agree to our Terms & Privacy Policy.</p>
+<p class="text">By signing up, you agree to our Terms & Privacy Policy.</p>
 
 </body>
 </html>
