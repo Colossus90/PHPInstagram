@@ -7,8 +7,6 @@
 </head>
 <body>
 
-<?php include_once ("header.inc.php");?>
-
 <div id="posts">
     <!-- posts -->
     <p>HIER KOMEN DE NOTIFICATIES</p>
