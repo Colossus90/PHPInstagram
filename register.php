@@ -3,67 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Register on Instagram</title>
-    <style>
-        #logo {
-            width: 200px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 20px;
-        }
-
-        .text {
-            color: gray;
-            text-align: center;
-            font-family: "verdana";
-            font-size: 0.8em;
-        }
-
-        #fb {
-            background-color: #4090DB;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            width: 350px;
-            height: 30px;
-            font-family: "verdana";
-            font-size: 0.8em;
-            padding-top: 6px;
-        }
-
-        #fblogo {
-            width: 20px;
-            padding-right: 10px;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-<header>
-    <img id="logo" src="images/logo.png" alt="">
-    <p class="text">Sign up to see photos and videos from your friends.</p>
-    <a id="fb" href=""><img id="fblogo" src="images/fb.png" alt="">Log in with Facebook</a>
-</header>
+<div>
+    <a href="#">
+        <img id="logo" src="images/logo.png" alt="logo Instagram">
+    </a>
 
-<p class="text">OR</p>
+    <p id="signUp">Sign up to see photos and videos from your friends.</p>
 
-<section>
-    <form action="" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="text" name="firstName" placeholder="First Name">
-        <input type="text" name="lastName" placeholder="Last Name">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" value="Sign up">
-    </form>
-</section>
+    <div id="Facebook">
+        <img id="logoFacebook" src="images/fb.png" alt="logo Facebook">
+        <a id="textFacebook" href="#">Log in with Facebook</a>
+    </div>
 
-<p class="text">By signing up, you agree to our Terms & Privacy Policy.</p>
+    <p id="or">OR</p>
+
+</div>
+
+<form action="" method="post"></form>
+    <!-- form -->
+    <div class="form-group">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input type="text" name="fullName" class="form-control" id="exampleInputPassword1" placeholder="Full name">
+    </div>
+    <div class="form-group">
+        <input type="text" name="username" class="form-control" id="exampleInputPassword1" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <div id="btnHolder">
+    <button id="btnSignUp" type="submit">Sign up</button>
+    </div>
+
+</form>
+
+<p id="signUp">By signing up, you agree to our Terms & Privacy Policy.</p>
+
+<p id="signUp">Already signed up? <a href="login.php">Login here.</a></p>
 
 </body>
 </html>
