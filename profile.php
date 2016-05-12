@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- naam van gebruiker in title -->
-    <title>Naam gebruiker</title>
+    <title>Gebruiker</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,10 +18,13 @@
             <input id="searchText" type="search" name="search" placeholder="Search">
         </form>
     </div>
-    <div id="profile">
-        <a href="profile.php">
-            <img id="logoProfile" src="images/logoProfile.png" alt="">
-        </a>
+    <!-- instellingen dropdown -->
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn"></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="settings.php">Change personal settings</a>
+            <a href="logout.php">Logout</a>
+        </div>
     </div>
 
 </header>
@@ -50,5 +53,6 @@
 
 </article>
 
+<script src="js/menu.js"></script>
 
 </body>
