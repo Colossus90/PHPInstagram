@@ -12,7 +12,7 @@
 
         public function __set($p_sProperty, $p_vValue)
         {
-            // TODO: Implement __set() method.
+
             switch($p_sProperty) {
                 case "FirstName":
                     $this->m_sFirstName = $p_vValue;
@@ -21,7 +21,6 @@
                     $this->m_sLastName = $p_vValue;
                     break;
                 case "Email":
-                    if()
                     $this->m_sEmail = $p_vValue;
                     break;
                 case "Password":
@@ -39,6 +38,38 @@
             }
         }
 
+        public function __get($p_sProperty)
+        {
+            $vResult = null;
+            switch($p_sProperty)
+            {
+                case "FirstName":
+                    $vResult = $this->m_sFirstName;
+                    break;
 
-    }
-?>
+                case "LastName":
+                    $vResult = $this->m_sLastName;
+                    break;
+
+                case "Email":
+                    $vResult = $this->m_sEmail;
+                    break;
+
+                case "Password":
+                    $vResult = $this->m_sPassword;
+                    break;
+
+                case "Private":
+                    $vResult = $this->m_bPrivate;
+                    break;
+
+                case "ProfilePicture":
+                    $vResult = $this->m_ProfilePicture;
+                    break;
+            }
+            return $vResult;
+        }
+
+
+    $query = $pdoconn->prepare("INSERT INTO posts (title, post) values (:title, :post)");
+    $query->execute();
