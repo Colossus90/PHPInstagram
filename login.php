@@ -1,3 +1,15 @@
+<?php
+
+include_once("User.class.php");
+if(!empty($_POST['btnSignUp'])){
+    if(!empty($_POST['username']) && !empty($_POST['password'])){
+        session_start();
+        $_SESSION['userexists']= array();
+        array_push($_SESSION['userexists'], $_POST['username'], $_POST['password']);
+        userExists();
+        }
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
