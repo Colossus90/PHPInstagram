@@ -1,24 +1,16 @@
 <?php
     class User {
-        var $m_iUserId;
-        var $m_sFirstName;
-        var $m_sLastName;
-        var $m_sEmail;
-        var $m_sPassword;
-        var $m_sUsername;
-        var $m_bPrivate;
-        // foto's in file uploads stockeren
-        var $m_ProfilePicture;
+        private $m_sFullName;
+        private $m_sUserName;
+        private $m_sEmail;
+        private $m_sPassword;
 
         public function __set($p_sProperty, $p_vValue)
         {
 
             switch($p_sProperty) {
-                case "FirstName":
-                    $this->m_sFirstName = $p_vValue;
-                    break;
-                case "LastName":
-                    $this->m_sLastName = $p_vValue;
+                case "FullName":
+                    $this->m_sFullName = $p_vValue;
                     break;
                 case "Email":
                     $this->m_sEmail = $p_vValue;
@@ -27,13 +19,7 @@
                     $this->m_sPassword = $p_vValue;
                     break;
                 case "Username":
-                    $this->m_sUsername = $p_vValue;
-                    break;
-                case "Private":
-                    $this->m_bPrivate = $p_vValue;
-                    break;
-                case "ProfilePicture":
-                    $this->m_ProfilePicture = $p_vValue;
+                    $this->m_sUserName = $p_vValue;
                     break;
             }
         }
@@ -43,12 +29,12 @@
             $vResult = null;
             switch($p_sProperty)
             {
-                case "FirstName":
-                    $vResult = $this->m_sFirstName;
+                case "FullName":
+                    $vResult = $this->m_sFullName;
                     break;
 
-                case "LastName":
-                    $vResult = $this->m_sLastName;
+                case "UserName":
+                    $vResult = $this->m_sUserName;
                     break;
 
                 case "Email":
@@ -59,17 +45,20 @@
                     $vResult = $this->m_sPassword;
                     break;
 
-                case "Private":
-                    $vResult = $this->m_bPrivate;
-                    break;
-
-                case "ProfilePicture":
-                    $vResult = $this->m_ProfilePicture;
-                    break;
             }
             return $vResult;
         }
 
 
-    $query = $pdoconn->prepare("INSERT INTO posts (title, post) values (:title, :post)");
-    $query->execute();
+     public function  register()
+     {
+         $conn = new PDO("msql:host=localhost, dbname=imdstagram","root","root");
+         $stmt = $conn->prepare("INSERT INTO users (name, username, email, password) values (:name, :username, :email, :password )");
+         $stmt->bindValue(":name", $this->FullName);
+         $stmt->bindValue(":username", $this->UserName);
+         $stmt->bindValue(":email", $this->Email);
+         // password nog veilig maken voor database
+         $stmt->bindValue(":password", $this->Password);
+         return $stmt->execute();
+     }
+    }

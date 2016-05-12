@@ -1,5 +1,5 @@
 <?php
-include_once("User.class.php");
+include_once("classes/User.class.php");
 
 if(!empty($_POST['btnSignUp'])) {
     if(!empty($_POST['email']) && !empty($_POST['fullName']) && !empty($_POST['username']) && !empty($_POST['password']))
@@ -9,7 +9,7 @@ if(!empty($_POST['btnSignUp'])) {
             $user->fullName = $_POST['fullName'];
             $user->username = $_POST['username'];
             $user->password = $_POST['password'];
-            $user->create();
+            $user->register();
 
             $feedback = "Thank you for signing up!";
         }
