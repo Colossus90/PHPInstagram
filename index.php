@@ -1,11 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stephaniewillekens
- * Date: 17/03/16
- * Time: 16:32
- */
-    session_start();
+    include_once ("classes/Like.class.php");
+    include_once ("classes/Comment.class.php");
+    include_once ("classes/Post.class.php");
+    include_once ("classes/User.class.php");
+    include_once ("classes/Following.class.php");
+
 ?>
 
 <!doctype html>
@@ -33,7 +32,9 @@
         </a>
     </div>
     <div>
-        <a href="post.php">maak een post!</a>
+        <a href="post.php"
+           onclick="return !window.open(this.href, 'Create a post', 'width=500,height=700')"
+           target="_blank">Create a post!</a>
     </div>
 
 </header>

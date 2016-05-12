@@ -1,6 +1,6 @@
 <?php
     class Post {
-        // foto's in file uploads stockeren
+
         private $m_sImage;
         private $m_sDescription;
         private $m_sLocation;
@@ -46,12 +46,11 @@
         public function CreatePost()
         {
             $conn = new PDO("mysql:host=localhost;dbname=imdstagram", "root", "root");
-            $statement = $conn->prepare("INSERT INTO users (image, description, place) VALUES (:image, :description, :place)");
-            // image opslagen als url in db!
+            $statement = $conn->prepare("INSERT INTO posts (image, description, place) VALUES (:image, :description, :place)");
             $statement->bindValue(":image", $this->m_sImage);
             $statement->bindValue(":description", $this->m_sDescription);
             $statement->bindValue(":place", $this->m_sLocation);
-            return $statement->execute();
+            $statement->execute();
         }
     }
 
