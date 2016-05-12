@@ -32,6 +32,9 @@
             <img id="logoProfile" src="images/logoProfile.png" alt="">
         </a>
     </div>
+    <div>
+        <a href="post.php">maak een post!</a>
+    </div>
 
 </header>
 

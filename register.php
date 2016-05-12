@@ -2,6 +2,7 @@
 include_once("classes/User.class.php");
 
 if(!empty($_POST)) {
+
     if(!empty($_POST['email']) && !empty($_POST['fullName']) && !empty($_POST['username']) && !empty($_POST['password']))
         {
             $user = new User();
@@ -10,8 +11,9 @@ if(!empty($_POST)) {
             $user->Username = $_POST['username'];
             $user->Password = $_POST['password'];
             $user->register();
-
+            header('location: login.php');
             $feedback = "Thank you for signing up!";
+            echo $feedback;
         }
     }
 ?>
@@ -40,7 +42,7 @@ if(!empty($_POST)) {
 
 </div>
 
-<form action="" method="post"></form>
+<form action="" method="post">
     <!-- form -->
     <div class="form-group">
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">

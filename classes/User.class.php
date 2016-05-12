@@ -49,16 +49,46 @@
             return $vResult;
         }
 
-
-     public function  register()
+     public function login()
      {
-         $conn = new PDO("msql:host=localhost, dbname=imdstagram","root","root");
+         $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
+         $query = $conn->prepare("SELECT * from users where username = :username");
+         $query->bindValue(":username" , $this->m_sUserName);
+         $query->execute();
+
+         if($query->rowCount() > 0)
+         {
+             $result = $query->fetch(PDO::FETCH_ASSOC);
+             $password = $this->m_sPassword;
+             $hash = $result['password'];
+
+             if(password_verify($password, $hash))
+             {
+                 return true;
+             } else {
+                 return false;
+             }
+         } else {
+             return false;
+         }
+
+     }
+
+
+     public function register()
+     {
+
+         $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
          $stmt = $conn->prepare("INSERT INTO users (name, username, email, password) values (:name, :username, :email, :password )");
          $stmt->bindValue(":name", $this->FullName);
          $stmt->bindValue(":username", $this->UserName);
          $stmt->bindValue(":email", $this->Email);
-         // password nog veilig maken voor database
-         $stmt->bindValue(":password", $this->Password);
-         return $stmt->execute();
+         $options = ['cost' => 12 ];
+         $password = password_hash($this->m_sPassword, PASSWORD_DEFAULT, $options);
+         $stmt->bindValue(":password", $password);
+         $stmt->execute();
      }
+
+
+
     }

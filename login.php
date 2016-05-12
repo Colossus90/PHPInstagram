@@ -1,12 +1,16 @@
 <?php
+include_once("classes/User.class.php");
 
-include_once("User.class.php");
-if(!empty($_POST['btnSignUp'])){
+if(!empty($_POST)){
     if(!empty($_POST['username']) && !empty($_POST['password'])){
-        session_start();
-        $_SESSION['userexists']= array();
-        array_push($_SESSION['userexists'], $_POST['username'], $_POST['password']);
-        userExists();
+        $user = new User();
+        $user->Username = $_POST['username'];
+        $user->Password = $_POST['password'];
+        $user->login();
+        if($user->login())
+        {
+            header('location: index.php');
+            }
         }
 }
 ?>
@@ -26,13 +30,13 @@ if(!empty($_POST['btnSignUp'])){
 
 </div>
 
-<form action="" method="post"></form>
+<form action="" method="post">
 <!-- form -->
 <div class="form-group">
-    <input type="email" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
 </div>
 <div class="form-group">
-    <input type="text" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 </div>
 
 <p id="forgot"><a href="forgotPassword.php">Forgot password?</a></p>
