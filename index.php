@@ -37,19 +37,7 @@ if(isset($_SESSION['loggedin']))
         </a>
     </div>
     <div>
-<<<<<<< HEAD
 
-        <a href="post.php">Create a post!</a>
-
-        <a href="post.php"><img id="logoUpload" src="images/logoUpload.png" alt=""></a>
-
-        <a href="post.php"><img id="logoUpload" src="images/logoUpload.png" alt=""></a>
-
-        <a href="post.php"><img id="logoUpload" src="images/logoUpload.png" alt=""></a>
-
-=======
-        <a href="post.php"><img id="logoUpload" src="images/logoUploa.png" alt=""></a>
->>>>>>> origin/master
     </div>
 
 </header>
