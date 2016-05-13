@@ -1,9 +1,8 @@
 <?php
-    include_once ("classes/Like.class.php");
-    include_once ("classes/Comment.class.php");
-    include_once ("classes/Post.class.php");
-    include_once ("classes/User.class.php");
-    include_once ("classes/Following.class.php");
+    if(!isset($_SESSION['loggedin']))
+    {
+        header('location: login.php');
+    }
 
 ?>
 

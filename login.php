@@ -9,7 +9,11 @@ if(!empty($_POST)){
         $user->login();
         if($user->login())
         {
+            session_start();
+            $_SESSION['loggedin'] = 'yes';
+
             header('location: index.php');
+
             }
         }
 }
