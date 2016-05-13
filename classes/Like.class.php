@@ -12,12 +12,11 @@ include_once("Db.class.php");
         {
             switch($p_sProperty)
             {
-<<<<<<< Updated upstream
+
                 case "like":
                     $this->
             }
         }
-=======
                 case "Like":
                     $this->m_iLikeId = $p_vValue;
                     break;
@@ -56,6 +55,5 @@ include_once("Db.class.php");
             $rResult = $db->select($cols, $table);
             return $rResult;
         }
->>>>>>> Stashed changes
     }
 ?>
