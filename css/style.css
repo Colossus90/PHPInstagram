@@ -56,6 +56,12 @@ header {
     margin-right: 30px;
 }
 
+#logoUpload {
+    width: 40px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
 /* class voor blauwe url's */
 .link {
     font-weight: bold;
@@ -314,9 +320,11 @@ h2 {
     background-image: url("../images/logoProfile.png");
     background-size: contain;
     background-repeat: no-repeat;
-    padding: 16px;
     border: none;
     cursor: pointer;
+    padding: 20px;
+    margin-top: 15px;
+    margin-right: 40px;
 }
 
 /* Dropdown button on hover & focus */
@@ -328,12 +336,14 @@ h2 {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right: 50px;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
+    margin-right: 100px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -356,7 +366,37 @@ h2 {
 /* settings */
 #changeSettingsTitle {
     text-align: center;
+}
 
+#changeSettingsTitle {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Avenir;
+    color: darkgray;
+    font-size: 1.3em;
+    margin-top: -6px;
+    margin-bottom: -2px;
+}
+
+#doneBtn {
+    margin-top: 25px;
+    font-family:Verdana;
+    text-transform: uppercase;
+}
+
+#doneBtnText {
+    color: #2F79B9;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#doneBtnText:hover {
+    color: darkblue;
+}
+
+#postsProfile {
+    width: 200px;
+    padding-left: 10px;
 }
 
 .form-group {
@@ -365,5 +405,32 @@ h2 {
     margin-right: auto;
 }
 
+.formSettings {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formSettingsControl {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* search */
+#searchResult {
+    text-align: center;
+    font-family: Avenir;
+    font-size: 1.8em;
+    color: dimgray;
+}
+
+#topPosts {
+    text-align: center;
+    color: darkgray;
+    text-transform: uppercase;
+    font-family:Avenir;
+    font-size: 0.6em;
+    margin-top: -20px;
+}
 
 

@@ -64,6 +64,15 @@
             $stmt->bindValue(":description", $this->m_sDescription);
             $stmt->execute();
         }
+
+        public function GetImage()
+        {
+            $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
+            $stmt = $conn->prepare("SELECT * FROM posts");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $postid = $result['id'];
+        }
     }
 
 ?>

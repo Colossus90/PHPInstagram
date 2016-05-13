@@ -1,6 +1,7 @@
 <?php
 
-include_once("Db.class.php");
+include_once("User.class.php");
+include_once("Post.class.php");
 
     class Comment {
         var $m_iCommentId;
@@ -12,21 +13,11 @@ include_once("Db.class.php");
         {
             switch($p_sProperty)
             {
-                case "commentId":
-                    $this->m_iCommentId = $p_vValue;
-                    break;
 
                 case "comment":
                     $this->m_sComment = $p_vValue;
                     break;
 
-                case "userId":
-                    $this->m_iUserId = $p_vValue;
-                    break;
-
-                case "postId":
-                    $this->m_iPostId = $p_vValue;
-                    break;
             }
         }
 
@@ -35,46 +26,23 @@ include_once("Db.class.php");
             $vResult = null;
             switch($p_sProperty)
             {
-                case "commentId":
-                    $vResult = $this->m_iCommentId;
-                    break;
 
                 case "comment":
                     $vResult = $this->m_sComment;
                     break;
 
-                case "userId":
-                    $vResult = $this->m_iUserId;
-                    break;
-
-                case "postId":
-                    $vResult = $this->m_iPostId;
-                    break;
             }
             return $vResult;
         }
 
-        public function Save()
+        public function SaveComment()
         {
-            $db = Db::getInstance();
+            $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
+            $stmt = $conn->prepare('INSERT INTO comments (comment,  fk_users_id,  fk_posts_id) VALUES (:comment, :userid, :postid)');
+            $stmt->bindValue(":comment", $this->m_sComment);
+            $stmt->bindValue(":userid", $_SESSION['id']);
 
-            $table = "comments";
-            $cols = array("comments");
-            $values = array($this->comment);
-            $db->insert($table, $cols, $values);
         }
 
-        public function GetComments()
-        {
-            $db = Db::getInstance();
-
-            $cols = array("*");
-            $table = "comments";
-            $orderBy = "id";
-            $orderHow = "DESC";
-
-            $rResult = $db->select($cols, $table, $orderBy, $orderHow);
-            return $rResult;
-        }
     }
 ?>
