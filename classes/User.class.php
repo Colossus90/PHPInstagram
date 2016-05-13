@@ -59,9 +59,9 @@
          if($query->rowCount() > 0)
          {
              $result = $query->fetch(PDO::FETCH_ASSOC);
+             $_SESSION['id'] = $result['id'];
              $password = $this->m_sPassword;
              $hash = $result['password'];
-
              if(password_verify($password, $hash))
              {
                  return true;
