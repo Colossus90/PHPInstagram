@@ -14,16 +14,16 @@
         <img id="logo2" src="images/logo.png" alt="">
     </a>
     <div id="search">
-        <form action="get">
+        <form action="search.php" method="get">
             <input id="searchText" type="search" name="search" placeholder="Search">
         </form>
     </div>
     <!-- instellingen dropdown -->
     <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn"></button>
+        <button onclick="myFunction()" class="dropbtn" alt=""></button>
         <div id="myDropdown" class="dropdown-content">
             <a href="settings.php">Change personal settings</a>
-            <a href="logout.php">Logout</a>
+            <a href="login.php">Logout</a>
         </div>
     </div>
 
@@ -50,8 +50,13 @@
         <p id="countFollowers" class="count"><strong>x</strong> followers</p>
         <p id="countFollowing" class="count"><strong>x</strong> following</p>
     </div>
-
+    
 </article>
+
+<!-- foto's op profiel -->
+    <article id="article1">
+        <a href=""><img id="postsProfile" src="images/test.png" alt=""></a>
+    </article>
 
 <script src="js/menu.js"></script>
 

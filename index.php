@@ -26,7 +26,7 @@ if(isset($_SESSION['loggedin']))
         <img id="logo2" src="images/logo.png" alt="">
     </a>
     <div id="search">
-        <form action="get">
+        <form action="search.php" method="get">
             <input id="searchText" type="search" name="search" placeholder="Search">
         </form>
     </div>
@@ -36,9 +36,7 @@ if(isset($_SESSION['loggedin']))
         </a>
     </div>
     <div>
-        <a href="post.php"
-           onclick="return !window.open(this.href, 'Create a post', 'width=500,height=700')"
-           target="_blank">Create a post!</a>
+        <a href="post.php"><img id="logoUpload" src="images/logoUploa.png" alt=""></a>
     </div>
 
 </header>

@@ -5,6 +5,7 @@
     <!-- naam van gebruiker in title -->
     <title>Change personal settings</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -13,13 +14,13 @@
     <a href="index.php">
         <img id="logo2" src="images/logo.png" alt="">
     </a>
-    <div>
-        <h3 id="changeSettingsTitle">Change personal settings</h3>
+    <div id="changeSettingsTitle">
+        <h3>Change personal settings</h3>
     </div>
     <!-- instellingen dropdown -->
-    <div class="dropdown">
+    <div id="doneBtn">
         <!-- function save settings -->
-        <a href="profile.php">Done</a>
+        <a id="doneBtnText" href="profile.php">Done</a>
     </div>
 
 </header>
@@ -30,12 +31,22 @@
         <form action="" method="post">
             <!-- update/insert into database! -->
             <!-- extra kolommen in db user: avatar, description,  -->
-            <label for="avatar">Upload profile picture </label>
-            <input type="file" name="avatar" id="avatar">
-            <input type="text" name="username" id="username" placeholder="Username">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="text" name="description" id="description" placeholder="Description">
-            <input type="password" name="password" id="password" placeholder="Password">
+            <div class="formSettings">
+                <label for="avatar">Upload profile picture </label>
+                <input type="file" class="formSettingsControl" name="avatar" id="avatar">
+            </div>
+            <div class="formSettings">
+                <input type="text" class="formSettingsControl" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="formSettings">
+                <input type="email" class="formSettingsControl" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="formSettings">
+                <input type="text" class="formSettingsControl" name="description" id="description" placeholder="Description">
+            </div>
+            <div class="formSettings">
+                <input type="password" class="formSettingsControl" name="password" id="password" placeholder="Password">
+            </div>
         </form>
     </div>
 
