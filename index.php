@@ -1,8 +1,13 @@
 <?php
-    if(!isset($_SESSION['loggedin']))
-    {
-        header('location: login.php');
-    }
+session_start();
+
+if(isset($_SESSION['loggedin']))
+{
+
+}else{
+    
+    header('location: login.php');
+}
 
 ?>
 

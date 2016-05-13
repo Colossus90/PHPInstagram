@@ -1,8 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stephaniewillekens
- * Date: 12/05/16
- * Time: 19:16
- */
+session_start();
+session_destroy();
+header('location: login.php');
+
 
