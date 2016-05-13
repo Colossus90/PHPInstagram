@@ -1,9 +1,13 @@
 <?php
-    include_once ("classes/Like.class.php");
-    include_once ("classes/Comment.class.php");
     include_once ("classes/Post.class.php");
     include_once ("classes/User.class.php");
-    include_once ("classes/Following.class.php");
+
+    /* zoekterm in search bar (form) */
+    /* checken of het in een description staat van posts */
+    /* overeenkomst? images bij behorende description tonen */
+
+
+
 ?>
 
 <!doctype html>
@@ -23,6 +27,7 @@
     <div id="search">
         <form action="search.php" method="get">
             <input id="searchText" type="search" name="search" placeholder="Search">
+            <input type="button" value="go" name="submit">
         </form>
     </div>
     <div id="profile">
@@ -31,9 +36,7 @@
         </a>
     </div>
     <div>
-        <a href="post.php"
-           onclick="return !window.open(this.href, 'Create a post', 'width=500,height=700')"
-           target="_blank">Create a post!</a>
+        <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
     </div>
 
 </header>

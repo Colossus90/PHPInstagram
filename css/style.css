@@ -314,6 +314,12 @@ h2 {
     margin-left: 130px;
 }
 
+#createPostBtn {
+    width: 40px;
+    margin-top: 13px;
+    margin-right: 15px;
+}
+
 /* dropdown menu instellingen profiel */
 
 .dropbtn {

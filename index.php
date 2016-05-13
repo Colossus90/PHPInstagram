@@ -29,6 +29,7 @@ if(isset($_SESSION['loggedin']))
     <div id="search">
         <form action="search.php" method="get">
             <input id="searchText" type="search" name="search" placeholder="Search">
+            <input type="button" value="go" name="submit">
         </form>
     </div>
     <div id="profile">
@@ -37,7 +38,7 @@ if(isset($_SESSION['loggedin']))
         </a>
     </div>
     <div>
-
+        <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
     </div>
 
 </header>

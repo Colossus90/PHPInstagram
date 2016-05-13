@@ -1,3 +1,17 @@
+<?php
+    include_once ("classes/User.class.php");
+    include_once ("classes/Post.class.php");
+
+    $link = new mysqli("localhost", "root", "root");
+    $link->select_db("imdstagram") or die("Databank kon niet geselecteerd worden.");
+
+    $query = "SELECT name FROM users;";
+    $result = $link->query($query);
+
+    $link->close();
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,6 +39,9 @@
             <a href="settings.php">Change personal settings</a>
             <a href="login.php">Logout</a>
         </div>
+        <div>
+            <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
+        </div>
     </div>
 
 </header>
@@ -35,7 +52,7 @@
         <!-- profielfoto -->
         <img id="profilePic2" src="images/test.png" alt="">
         <!-- naam profielgebruiker -->
-        <h2>name profile</h2>
+        <h2><?php echo $_SESSION["name"]; ?></h2>
     </div>
 
     <!-- beschrijving op profiel -->
@@ -59,5 +76,7 @@
     </article>
 
 <script src="js/menu.js"></script>
+
+
 
 </body>
