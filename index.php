@@ -12,6 +12,8 @@ if(isset($_SESSION['loggedin']))
     header('location: login.php');
 }
 
+
+
 ?>
 
 <!doctype html>
@@ -41,6 +43,9 @@ if(isset($_SESSION['loggedin']))
     </div>
     <div>
         <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
+    </div>
+    <div>
+        <a href="logout.php"><img id="createPostBtn" src="images/logout.png" alt=""></a>
     </div>
 
 </header>

@@ -44,6 +44,9 @@
     <div>
         <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
     </div>
+    <div>
+        <a href="logout.php"><img id="createPostBtn" src="images/logout.png" alt=""></a>
+    </div>
 
 </header>
 
@@ -54,6 +57,7 @@
         do {
             ?>
             <img id="searchResultImg" src="<?php echo $search_rs['image'] ?>" >
+            <p><?php echo $search_rs['posttime'] ?></p>
         <?php } while ($search_rs = mysqli_fetch_assoc($search_query));
     }
     else {

@@ -3,14 +3,6 @@
     include_once ("classes/User.class.php");
     include_once ("classes/Post.class.php");
 
-    $link = new mysqli("localhost", "root", "root");
-    $link->select_db("imdstagram") or die("Databank kon niet geselecteerd worden.");
-
-    $query = "SELECT name FROM users;";
-    $result = $link->query($query);
-
-    $link->close();
-
 ?>
 
 <!doctype html>
@@ -30,20 +22,20 @@
     </a>
     <div id="search">
         <form action="search.php" method="get">
-            <input id="searchText" type="search" name="search" placeholder="Search">
+            <input id="searchText" type="search" name="search" placeholder="Search for hashtag or location">
         </form>
     </div>
     <!-- instellingen dropdown -->
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn" alt=""></button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="settings.php">Change personal settings</a>
-            <a href="login.php">Logout</a>
-        </div>
-        <div>
-            <a href="post.php"><img id="createPostBtn" src="Search for hashtag or location" alt=""></a>
-        </div>
+    <div>
+        <a href="settings.php"><img id="createPostBtn" src="images/settings.png" alt=""></a>
     </div>
+    <div>
+        <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png"></a>
+    </div>
+    <div>
+        <a href="logout.php"><img id="createPostBtn" src="images/logout.png" alt=""></a>
+    </div>
+
 
 </header>
 
@@ -53,9 +45,8 @@
         <!-- profielfoto -->
         <img id="profilePic2" src="images/test.png" alt="">
         <!-- naam profielgebruiker -->
-        <h2>Name</h2>
-    </div>
-
+        <div><h2>Naam</h2></div>
+</div>
     <!-- beschrijving op profiel -->
     <div>
         <p id="description2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
