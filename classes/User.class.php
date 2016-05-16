@@ -60,6 +60,7 @@
          {
              $result = $query->fetch(PDO::FETCH_ASSOC);
              $_SESSION['id'] = $result['id'];
+             $_SESSION['name'] = $result['name'];
              $password = $this->m_sPassword;
              $hash = $result['password'];
              if(password_verify($password, $hash))

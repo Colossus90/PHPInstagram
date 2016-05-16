@@ -15,6 +15,7 @@
                 case "Location":
                     $this->m_sLocation = $p_vValue;
                     break;
+
             }
         }
 
@@ -31,7 +32,6 @@
                 case "Location":
                     $vResult = $this->m_sLocation;
                     break;
-
 
             }
             return $vResult;
@@ -65,13 +65,24 @@
             $stmt->execute();
         }
 
-        public function GetImage()
+
+        public function GetPosts()
         {
             $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
-            $stmt = $conn->prepare("SELECT * FROM posts");
+            $stmt = $conn->prepare("SELECT * FROM posts LEFT JOIN users ON users.id = posts.fk_users_id
+            WHERE posts.fk_users_id = " . $_SESSION['id']);
             $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            $postid = $result['id'];
+            $result = $stmt->fetchAll();
+            return $result;
+        }
+
+        public function time() {
+            $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
+            $stmt = $conn->prepare("SELECT posttime FROM posts");
+            $datetime1 = new DateTime();
+            $datetime2 = $stmt;
+            $interval = $datetime1->diff($datetime2);
+            echo $interval->format('%D days %H hours %I minutes ago');
         }
     }
 

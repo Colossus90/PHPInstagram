@@ -47,6 +47,10 @@
         <!-- naam profielgebruiker -->
         <div><h2>Naam</h2></div>
 </div>
+        <h2>name profile</h2>
+
+    </div>
+
     <!-- beschrijving op profiel -->
     <div>
         <p id="description2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>

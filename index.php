@@ -1,7 +1,5 @@
 <?php
 
-include ("classes/Search.class.php");
-
 session_start();
 
 if(isset($_SESSION['loggedin']))
@@ -9,7 +7,30 @@ if(isset($_SESSION['loggedin']))
 
 }else{
 
-    header('location: login.php');
+    header('location:login.php');
+}
+
+include_once("classes/Search.class.php");
+include_once("classes/Post.class.php");
+include_once("classes/Comment.class.php");
+include_once("classes/User.class.php");
+
+if(!empty($_POST["comment"]))
+{
+
+    $comment->comment = $_POST['comment'];
+    $comment->postId = $_POST['postid'];
+    $comment->SaveComment();
+}
+
+
+if(!empty($_FILES["fileToUpload"]))
+{
+    $post = new Post();
+    $post->Description = $_POST['description'];
+    $post->Location = $_POST['location'];
+    $post->SaveImage();
+
 }
 
 
@@ -50,58 +71,58 @@ if(isset($_SESSION['loggedin']))
 
 </header>
 
-<!-- Hier moet een for each loop komen om alle updates te tonen -->
+<div id="posts">
+    <!-- posts -->
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="postimage">Select your image:</label>
+        <input type="file" name="fileToUpload" id="fileToUpload" alt="post-image">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" alt="description">
+        <label for="Location">Location:</label>
+        <input type="text" name="location" id="location" alt="location">
+        <div id="btnHolder">
+            <button id="btnPost" type="submit">Create your post!</button>
+        </div>
+    </form>
+</div>
+
 <section id="updates">
+    <!-- <?php foreach($post as $p): ?> -->
     <article id="updatesArticle">
-        <!-- profielfoto, profielnaam, time -->
         <div id="article1">
-            <!-- profielfoto -->
-            <!-- DIT IS EEN TESTAFBEELDING -->
-            <img id="profilePic" src="images/test.png" alt="">
-            <!-- naam profiel -->
-            <a class="link" id="profileName" href="">name profile</a>
-            <!-- tijdstip upload -->
-            <p id="time">time</p>
+            <a class="link" id="profileName" href="profile.php?user=<?php echo $p['name'];?>"><?php echo $p['name'];?></a>
+            <p id="time"><?php echo $p['location'];?></p>
         </div>
 
-        <!-- gepostte foto -->
         <div id="article2">
-            <!-- DIT IS EEN TESTAFBEELDING!-->
-            <img id="upload" src="images/test.png" alt="">
+            <img id="upload" src="<?php echo $p['image'];?>" alt="<?php echo $p['image'] ?>">
+            <p id="description"><?php echo $p['description'];?></p>
         </div>
 
-        <!-- namen personen die geliked hebben -->
-        <div id="article3">
-            <!-- likes -->
-            <a class="link" id="likeProfileName" href="">name profile like</a>
-            <p id="description"> like this.</p>
-            <!-- naam profiel -->
-        </div>
-
-        <!-- profielnaam, beschrijving post -->
-        <div id="article4">
-            <a class="link" id= "profileName" href="">name profile</a>
-            <!-- beschrijving post -->
-            <p id="description">description post</p>
-        </div>
-
-        <!-- like icoon, comment, report -->
         <div id="article5">
-            <!-- like icon -->
-            <!-- MOET REALTIME MET AJAX! -->
-            <a id="likeIcon" href=""></a>
-
-            <!-- MOET REALTIME MET AJAX! -->
-            <form id="comment" action="">
+            <!-- <a id="likeIcon" href=""></a> -->
+            <ul>
+                <?php $getcomment = new Comment();?>
+                <?php $getcomment = $getcomment->GetComments();?>
+                <?php foreach($getcomment as $gc): ?>
+                <li><a href="profile.php?user=<?php $gc['name']; ?>"><?php $gc['name']; ?></a><?php echo $gc['comment']; ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <form id="comment" action="" method="post" enctype="multipart/form-data">
                 <input id="commentText" type="text" name="comment" placeholder="Add a comment...">
+                <input type="hidden" name="postid" value="<?php echo $p['id']?>" >
+                <input type="hidden" name="userid" value="<?php $_SESSION['id']?>" >
+                <input type="submit" value="Submit comment" name ="btnComment">
             </form>
+
         </div>
 
         <div id="article6">
             <a id="report" href="">Report inappropriate</a>
         </div>
-
     </article>
+    <?php endforeach; ?>
+
 
 </section>
 

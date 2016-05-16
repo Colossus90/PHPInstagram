@@ -4,10 +4,8 @@ include_once("User.class.php");
 include_once("Post.class.php");
 
     class Comment {
-        var $m_iCommentId;
-        var $m_sComment;
-        var $m_iUserId;
-        var $m_iPostId;
+        private $m_sComment;
+        private $m_iPostId;
 
         public function __set($p_sProperty, $p_vValue)
         {
@@ -17,6 +15,9 @@ include_once("Post.class.php");
                 case "comment":
                     $this->m_sComment = $p_vValue;
                     break;
+
+                case "postId":
+                    $this->m_iPostId = $p_vValue;
 
             }
         }
@@ -31,6 +32,10 @@ include_once("Post.class.php");
                     $vResult = $this->m_sComment;
                     break;
 
+                case "postId":
+                    $vResult = $this->m_iPostId;
+                    break;
+
             }
             return $vResult;
         }
@@ -41,7 +46,18 @@ include_once("Post.class.php");
             $stmt = $conn->prepare('INSERT INTO comments (comment,  fk_users_id,  fk_posts_id) VALUES (:comment, :userid, :postid)');
             $stmt->bindValue(":comment", $this->m_sComment);
             $stmt->bindValue(":userid", $_SESSION['id']);
+            $stmt->bindValue(":postid", $this->m_iPostId);
+        }
 
+        public function GetComments($thispost)
+        {
+            $conn = new PDO('mysql:host=localhost;dbname=imdstagram', "root", "root");
+            $stmt = $conn->prepare('SELECT * FROM comments LEFT OUTER JOIN posts ON comments.fk_posts_id=posts.id
+            LEFT OUTER JOIN users ON comments.fk_user_id=users.id WHERE posts.fk_posts.id = :postId');
+            $stmt->bindValue(":postId", $thispost);
+            $stmt->exeute();
+            $result = $stmt->fetchAll();
+            return $result;
         }
 
     }
