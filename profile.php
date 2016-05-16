@@ -1,4 +1,5 @@
 <?php
+    include ("classes/Search.class.php");
     include_once ("classes/User.class.php");
     include_once ("classes/Post.class.php");
 
@@ -40,7 +41,7 @@
             <a href="login.php">Logout</a>
         </div>
         <div>
-            <a href="post.php"><img id="createPostBtn" src="images/logoUploa.png" alt=""></a>
+            <a href="post.php"><img id="createPostBtn" src="Search for hashtag or location" alt=""></a>
         </div>
     </div>
 
@@ -52,7 +53,7 @@
         <!-- profielfoto -->
         <img id="profilePic2" src="images/test.png" alt="">
         <!-- naam profielgebruiker -->
-        <h2><?php echo $_SESSION["name"]; ?></h2>
+        <h2>Name</h2>
     </div>
 
     <!-- beschrijving op profiel -->

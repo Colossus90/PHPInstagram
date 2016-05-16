@@ -1,5 +1,7 @@
 <?php
 
+include ("classes/Search.class.php");
+
 session_start();
 
 if(isset($_SESSION['loggedin']))
@@ -28,8 +30,8 @@ if(isset($_SESSION['loggedin']))
     </a>
     <div id="search">
         <form action="search.php" method="get">
-            <input id="searchText" type="search" name="search" placeholder="Search">
-            <input type="button" value="go" name="submit">
+            <input id="searchText" type="text" name="search" placeholder="Search for hashtag or location" maxlength="50">
+            <input type="submit" value="Go" name="submit">
         </form>
     </div>
     <div id="profile">
