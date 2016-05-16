@@ -57,7 +57,7 @@
         do {
             ?>
             <img id="searchResultImg" src="<?php echo $search_rs['image'] ?>" >
-            <p><?php echo $search_rs['posttime'] ?></p>
+            <p><?php echo $search_rs['posttime']; ?></p>
         <?php } while ($search_rs = mysqli_fetch_assoc($search_query));
     }
     else {
